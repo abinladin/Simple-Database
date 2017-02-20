@@ -85,7 +85,7 @@ public class Database {
   
   public void outputToFile(){
     try {
-      PrintWriter writer = new PrintWriter(name + ".txt");
+      PrintWriter writer = new PrintWriter("databases/" + name + ".txt");
       writer.println(this);
       writer.close();
       
