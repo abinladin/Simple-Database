@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-  
+import java.io.*;
 public class Entry{
   private ArrayList<Object> values;
   private static int index = 0;
@@ -13,12 +13,11 @@ public class Entry{
     index++;
   }
   
-  public Entry(String url){
+  public Entry(String url) throws FileNotFoundException, IOException{
     values = new ArrayList<Object>();
-    Scanner parser = new Scanner(url);
-    
-    while(parser.hasNext()){
-      values.add((Object)parser.next());
+    Scanner s = new Scanner(new File(url));
+    while(s.hasNextLine()){
+      values.add((Object)s.nextLine());
     }
     
   }
